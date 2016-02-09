@@ -1,0 +1,19 @@
+{
+  "name": "twoter",
+  "version": "1.0.0",
+  "description": "Twoter app for Olin.JS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adeaver/twoter.git"
+  },
+  "author": "Andrew Deaver",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adeaver/twoter/issues"
+  },
+  "homepage": "https://github.com/adeaver/twoter#readme"
+}
