@@ -17,5 +17,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 var index = require('./routes/index.js');
 
 app.get('/', index.home);
+app.post('/twoter', function(req, res) {
+	res.send("coming soon");
+});
 
 app.listen(3000);
