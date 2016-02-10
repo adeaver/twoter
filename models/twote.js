@@ -6,4 +6,4 @@ var twoteSchema = new mongoose.Schema({
 	timestamp:{type:Date}
 });
 
-module.exports.Twote = new mongoose.Model("Twote", twoteSchema);
+module.exports = mongoose.model("Twote", twoteSchema);

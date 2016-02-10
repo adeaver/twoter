@@ -14,11 +14,13 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
 
+mongoose.connect('mongodb://localhost/twoter');
+
 var index = require('./routes/index.js');
+var runner = require('./routes/twoter.js');
 
 app.get('/', index.home);
-app.post('/twoter', function(req, res) {
-	res.send("coming soon");
-});
+app.post('/twoter', runner.logInUser);
+app.get('/twoter', runner.seeTwotes);
 
 app.listen(3000);
