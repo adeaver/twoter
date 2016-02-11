@@ -10,7 +10,7 @@
 
 	<div id="page_content">
 		<div id="left_container">
-			<h1 id="main_title">Twoter</h1>
+			<h1 class="title">Twote Here</h1>
 
 			<div id="send_twote">
 				{{#if isVerified}}
@@ -23,7 +23,7 @@
 				{{/if}}
 			</div>
 
-			<h1>Twotes</h1>
+			<h1 class="title">Twotes</h1>
 			<div id="receivedtwote">
 				<div id="twotes">
 				{{#each twotes}}
@@ -41,7 +41,7 @@
 				<input type="submit" value="Log Out" disabled />
 			{{/if}}
 
-			<h1>Twoters</h1>
+			<h1 class="title">Twoters</h1>
 			<div>
 				{{#each users}}
 				<div id="user_{{this._id}}" class='findByTwoter' onclick="findTwotesByUser('{{this.username}}', '{{this._id}}')">{{this.username}}</div>

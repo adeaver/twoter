@@ -34,8 +34,9 @@
 	float:right;
 }
 
-#main_title {
+.title {
 	text-align: center;
+	font-family: Arial;
 }
 
 #receivedtwote {

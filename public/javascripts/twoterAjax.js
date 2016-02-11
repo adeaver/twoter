@@ -5,7 +5,7 @@ var twoteBoxStyle = "'margin-bottom: 35px;padding:30px;background-color: #D3D3D3
 var twoteByStyle = "'float:right;'";
 
 var twoterNameStyleBasic = {'margin-bottom': '25px', 'padding':'10px', 'background-color': '#D3D3D3', 'box-shadow':'10px 10px grey'};
-var twoterNameStyleHighlighted = {'margin-bottom': '25px', 'padding':'10px', 'background-color': '#FFFF99', 'box-shadow':'10px 10px grey'};
+var twoterNameStyleHighlighted = {'margin-bottom': '25px', 'padding':'10px', 'background-color': '#FF9900', 'box-shadow':'10px 10px grey'};
 
 var addTwote = function(userId, username) {
 	var twote = $("#twotearea").val();
