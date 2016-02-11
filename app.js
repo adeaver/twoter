@@ -19,10 +19,13 @@ mongoose.connect('mongodb://localhost/twoter');
 var index = require('./routes/index.js');
 var runner = require('./routes/twoter.js');
 var adder = require('./routes/addTwote.js');
+var finder = require('./routes/findTwoteByUser.js');
+
+app.post('/twoter', runner.logInUser);
+app.post('/twoter/addTwote', adder.addTwote);
 
 app.get('/', index.home);
-app.post('/twoter', runner.logInUser);
 app.get('/twoter', runner.seeTwotes);
-app.post('/twoter/addTwote', adder.addTwote);
+app.get('/twoter/findTwotesByUser', finder.findTwotesByUser);
 
 app.listen(3000);

@@ -1,17 +1,18 @@
-<script type="text/javascript" src="./javascripts/twoterAjax.js">
+<script type="text/javascript" src="../javascripts/twoterAjax.js">
 </script>
 
 <div id="page_content">
 	<div id="left_container">
+		<h1 id="main_title">Twoter</h1>
 
-		<div id="sendtwote">
+		<div id="send_twote">
 			{{#if isVerified}}
-				<textarea id="twotearea" rows="6" cols="50" placeholder="Twote Your Ass Off"></textarea><br />
-				<input value="Twote" type="submit" onclick="addTwote('{{userId}}', '{{username}}')" />
+				<textarea id="twotearea" rows="6" placeholder="Twote Your Ass Off"></textarea><br />
+				<input value="Twote" id="Twote" type="submit" onclick="addTwote('{{userId}}', '{{username}}')" />
 				<p> - {{username}}</p>
 			{{else}}
-				<textarea id="twotearea" rows="6" cols="50" placeholder="Twote Your Ass Off" disabled></textarea><br />
-				<input value="Twote" type="submit" disabled />
+				<textarea id="twotearea" rows="6" placeholder="Twote Your Ass Off" disabled></textarea><br />
+				<input value="Twote" id="Twote" type="submit" disabled />
 			{{/if}}
 		</div>
 
@@ -35,8 +36,9 @@
 		<h1>Twoters</h1>
 		<ul>
 			{{#each users}}
-			<li id="user_{{this._id}}">{{this.username}}</li>
+			<li id="user_{{this._id}}" onclick="findTwotesByUser('{{this.username}}')">{{this.username}}</li>
 			{{/each}}
 		</ul>
+		<p onclick="findTwotesByUser('')">-- See All Twotes --</p>
 	</div>
 </div>
