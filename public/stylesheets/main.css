@@ -21,7 +21,8 @@
 #send_twote {
 	margin-top:20px;
 	padding:30px;
-	background-color: grey;
+	background-color: #D3D3D3;
+	box-shadow: 10px 10px grey;
 	flex-grow:1;
 }
 
@@ -39,5 +40,22 @@
 
 #receivedtwote {
 	flex-grow:1;
-	overflow-y:scroll;
+}
+
+.twote_box {
+	margin-bottom: 35px;
+	padding:30px;
+	background-color: #D3D3D3;
+	box-shadow: 10px 10px grey;
+}
+
+.twote_user {
+	float:right;
+}
+
+.findByTwoter {
+	margin-bottom: 25px;
+	padding:10px;
+	background-color: #D3D3D3;
+	box-shadow: 10px 10px grey;
 }

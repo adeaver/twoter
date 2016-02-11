@@ -1,7 +1,7 @@
 {{#if redirect}}
 	<script type="text/javascript">
 		$(document).ready(function() {
-			window.location.href="/?redirected=true";
+			window.location.href="/?redirected=";
 		});
 	</script>
 {{else}}
@@ -25,10 +25,11 @@
 
 			<h1>Twotes</h1>
 			<div id="receivedtwote">
-				<ul id="twotes">
+				<div id="twotes">
 				{{#each twotes}}
-					<li>{{this.text}} -- by {{this.username}}</li>
+					<div class="twote_box"><span class="twote_text">{{this.text}}</span><br /> <span class="twote_user">-- {{this.username}}</span></div>
 				{{/each}}
+				</div>
 			</div>
 
 		</div>
@@ -41,12 +42,12 @@
 			{{/if}}
 
 			<h1>Twoters</h1>
-			<ul>
+			<div>
 				{{#each users}}
-				<li id="user_{{this._id}}" onclick="findTwotesByUser('{{this.username}}')">{{this.username}}</li>
+				<div id="user_{{this._id}}" class='findByTwoter' onclick="findTwotesByUser('{{this.username}}', '{{this._id}}')">{{this.username}}</div>
 				{{/each}}
-			</ul>
-			<p onclick="findTwotesByUser('')">-- See All Twotes --</p>
+			</div>
+			<div id="user_all" class='findByTwoter' onclick="findTwotesByUser('', 'all')">-- See All Twotes --</div>
 		</div>
 	</div>
 {{/if}}

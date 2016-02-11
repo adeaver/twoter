@@ -1,6 +1,9 @@
 var baseAddUrl = "http://127.0.0.1:3000/twoter/addTwote";
 var baseFindUrl = "http://127.0.0.1:3000/twoter/findTwotesByUser";
 
+var twoteBoxStyle = "'margin-bottom: 35px;padding:30px;background-color: #D3D3D3;box-shadow: 10px 10px grey;'";
+var twoteByStyle = "'float:right;'";
+
 var addTwote = function(userId, username) {
 	var twote = $("#twotearea").val();
 	$.post(baseAddUrl,
@@ -38,11 +41,11 @@ var createListElements = function(listResults) {
 	var stop = listResults.length;
 
 	if(stop == 0) {
-		listElements += "<li>No Twotes found for this user</li>";
+		listElements += "<div style=" + twoteBoxStyle + ">No Twotes found for this user</div>";
 	} else {
 		for(var index = 0; index < stop; index++) {
-			listElements += "<li>" + listResults[index].text;
-			listElements += " -- by " + listResults[index].username;
+			listElements += "<div style=" + twoteBoxStyle + ">" + listResults[index].text + "<br />";
+			listElements += "<span style='float:right;'>-- by " + listResults[index].username + "</span></div>";
 		}
 	}
 
