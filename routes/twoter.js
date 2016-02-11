@@ -3,6 +3,8 @@ var mongoose = require('mongoose');
 var User = require('../models/user.js');
 var Twote = require('../models/twote.js');
 
+// -- METHODS FOR MAIN "/twoter" end point
+
 // Post Request for "/twoter" end point
 var logInUser = function(req, res) {
 	var verification = {};
@@ -10,9 +12,15 @@ var logInUser = function(req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
 
+	if(username == "") {
+		verification = negativeVerified();
+		getAllTwotes(res, verification);
+	}
+
 	User.find({username:username}, function(err, user) {
 		if(err) {
 			verification = negativeVerified();
+			getAllTwotes(res, verification);
 		} else {
 			if(user.length > 0) {
 				// User exists
@@ -21,6 +29,8 @@ var logInUser = function(req, res) {
 				} else {
 					verification = negativeVerified();
 				}
+
+				getAllTwotes(res, verification);
 			} else {
 				// User needs to be added
 				var newUser = new User({
@@ -34,11 +44,11 @@ var logInUser = function(req, res) {
 					} else {
 						verification = positiveVerified(user);
 					}
+
+					getAllTwotes(res, verification);
 				});
 			}
-		}
-
-		getAllTwotes(res, verification);		
+		}		
 	});
 }
 
@@ -51,9 +61,14 @@ var seeTwotes = function(req, res) {
 
 // --> This method will be called by both get and post requests 
 var getAllTwotes = function(res, dataBundle) {
-	Twote.find(function(err, twotes) {
+	Twote.find({}).sort({timestamp: -1}).exec(function(err, twotes) {
 		dataBundle.twotes = err ? [] : twotes;
-		res.send(dataBundle);
+		
+		var userQuery = User.find({}).select('username');
+		userQuery.exec(function(err, users) {
+			dataBundle.users = err ? [] : users;
+			res.render("twoter", dataBundle);
+		})
 	});
 }
 

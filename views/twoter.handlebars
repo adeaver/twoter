@@ -1,0 +1,42 @@
+<script type="text/javascript" src="./javascripts/twoterAjax.js">
+</script>
+
+<div id="page_content">
+	<div id="left_container">
+
+		<div id="sendtwote">
+			{{#if isVerified}}
+				<textarea id="twotearea" rows="6" cols="50" placeholder="Twote Your Ass Off"></textarea><br />
+				<input value="Twote" type="submit" onclick="addTwote('{{userId}}', '{{username}}')" />
+				<p> - {{username}}</p>
+			{{else}}
+				<textarea id="twotearea" rows="6" cols="50" placeholder="Twote Your Ass Off" disabled></textarea><br />
+				<input value="Twote" type="submit" disabled />
+			{{/if}}
+		</div>
+
+		<div id="receivedtwote">
+			<h1>Twotes</h1>
+			<ul id="twotes">
+			{{#each twotes}}
+				<li>{{this.text}} -- by {{this.username}}</li>
+			{{/each}}
+		</div>
+
+	</div>
+
+	<div id="right_container">
+		{{#if isVerified}}
+			<input type="submit" value="Log Out" onclick="logOut()" />
+		{{else}}
+			<input type="submit" value="Log Out" disabled />
+		{{/if}}
+
+		<h1>Twoters</h1>
+		<ul>
+			{{#each users}}
+			<li id="user_{{this._id}}">{{this.username}}</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>
