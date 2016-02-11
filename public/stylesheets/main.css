@@ -22,6 +22,7 @@
 	margin-top:20px;
 	padding:30px;
 	background-color: grey;
+	flex-grow:1;
 }
 
 #twotearea {
@@ -34,4 +35,9 @@
 
 #main_title {
 	text-align: center;
+}
+
+#receivedtwote {
+	flex-grow:1;
+	overflow-y:scroll;
 }

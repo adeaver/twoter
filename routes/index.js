@@ -1,5 +1,6 @@
 var home = function(req, res){
-  res.render("home");
+	var redirected = req.query.redirected !== undefined;
+  	res.render("home", {redirected:redirected});
 };
 
 module.exports.home = home;

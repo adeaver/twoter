@@ -35,10 +35,15 @@ var findTwotesByUser = function(username) {
 
 var createListElements = function(listResults) {
 	var listElements = "";
+	var stop = listResults.length;
 
-	for(var index = 0; index < listResults.length; index++) {
-		listElements += "<li>" + listResults[index].text;
-		listElements += " -- by " + listResults[index].username;
+	if(stop == 0) {
+		listElements += "<li>No Twotes found for this user</li>";
+	} else {
+		for(var index = 0; index < stop; index++) {
+			listElements += "<li>" + listResults[index].text;
+			listElements += " -- by " + listResults[index].username;
+		}
 	}
 
 	return listElements;
