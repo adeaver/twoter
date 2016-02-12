@@ -14,7 +14,6 @@
 #right_container {
 	display:flex;
 	padding:50px;
-	flex-grow:1;
 	flex-direction:column;
 }
 

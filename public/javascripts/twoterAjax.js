@@ -1,3 +1,5 @@
+var singleTwoter = {"user":"all"};
+
 var baseAddUrl = "http://127.0.0.1:3000/twoter/addTwote";
 var baseFindUrl = "http://127.0.0.1:3000/twoter/findTwotesByUser";
 
@@ -15,9 +17,12 @@ var addTwote = function(userId, username) {
 			twote:twote,
 			username:username
 		}, function(data, status) {
-			var addElement = createTwoteElement(username, twote);
+			if(singleTwoter.user === "all" || singleTwoter.user === username) {
+				var addElement = createTwoteElement(username, twote);
 
-			$("#twotes").prepend(addElement);
+				$("#twotes").prepend(addElement);
+			}
+			
 			$("#twotearea").val("");
 		});
 }
@@ -35,6 +40,8 @@ var findTwotesByUser = function(username, id) {
 		success: function(result) {
 			$("#twotes").html(createListElements(result));
 			highlightTwoter(id);
+
+			singleTwoter.user = username == "" ? "all" : username;
 		}
 	})
 }
