@@ -27,6 +27,7 @@
 
 #twotearea {
 	width:100%;
+	resize: none;
 }
 
 #Twote {

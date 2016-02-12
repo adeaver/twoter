@@ -9,6 +9,15 @@ var twoteByStyle = "'float:right;'";
 var twoterNameStyleBasic = {'margin-bottom': '25px', 'padding':'10px', 'background-color': '#D3D3D3', 'box-shadow':'10px 10px grey'};
 var twoterNameStyleHighlighted = {'margin-bottom': '25px', 'padding':'10px', 'background-color': '#FF9900', 'box-shadow':'10px 10px grey'};
 
+$(document).ready(function() {
+	$("#twotearea").keydown(function() {
+		if(event.keyCode == 13) {
+			// Enter was pressed
+			addTwote($("#twotearea").attr("data-userid"), $("#twotearea").attr("data-username"));
+		}
+	});
+});
+
 var addTwote = function(userId, username) {
 	var twote = $("#twotearea").val();
 	$.post(baseAddUrl,

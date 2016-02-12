@@ -14,7 +14,7 @@
 
 			<div id="send_twote">
 				{{#if isVerified}}
-					<textarea id="twotearea" rows="6" placeholder="Twote Your Ass Off"></textarea><br />
+					<textarea data-userId="{{userId}}" data-username="{{username}}" id="twotearea" rows="6" placeholder="Twote Your Ass Off"></textarea><br />
 					<input value="Twote" id="Twote" type="submit" onclick="addTwote('{{userId}}', '{{username}}')" />
 					<p> - {{username}}</p>
 				{{else}}
