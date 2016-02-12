@@ -1,7 +1,7 @@
 var singleTwoter = {"user":"all"};
 
-var baseAddUrl = "http://127.0.0.1:3000/twoter/addTwote";
-var baseFindUrl = "http://127.0.0.1:3000/twoter/findTwotesByUser";
+var baseAddUrl = "http://localhost:3000/twoter/addTwote";
+var baseFindUrl = "http://localhost:3000/twoter/findTwotesByUser";
 
 var twoteBoxStyle = "'margin-bottom: 35px;padding:30px;background-color: #D3D3D3;box-shadow: 10px 10px grey;'";
 var twoteByStyle = "'float:right;'";
