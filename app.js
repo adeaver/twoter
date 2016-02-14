@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var expressSession = require('express-session');
 var initPassport = require('./passport/initPassport.js');
+var auth = require('./passport/auth.js');
 var app = express();
 
 app.use( bodyParser.json() ); 
@@ -32,11 +33,15 @@ var runner = require('./routes/twoter.js');
 var adder = require('./routes/addTwote.js');
 var finder = require('./routes/findTwoteByUser.js');
 
-app.post('/twoter', runner.logInUser);
-app.post('/twoter/addTwote', adder.addTwote);
-
 app.get('/', index.home);
-app.get('/twoter', runner.seeTwotes);
+app.get('/twoter', auth.isAuthenticated, runner.getTwotes);
+app.post('/login', passport.authenticate('local', {
+	successRedirect:'/twoter',
+	failureRedirect:'/'
+}));
+
+// data routes
+app.post('/twoter/addTwote', adder.addTwote);
 app.get('/twoter/findTwotesByUser', finder.findTwotesByUser);
 
 app.listen(3000);

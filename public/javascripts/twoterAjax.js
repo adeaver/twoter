@@ -1,7 +1,7 @@
 var singleTwoter = {"user":"all"};
 
-var baseAddUrl = "http://localhost:3000/twoter/addTwote";
-var baseFindUrl = "http://localhost:3000/twoter/findTwotesByUser";
+var addRoute = "/twoter/addTwote";
+var findRoute = "/twoter/findTwotesByUser";
 
 var twoteBoxStyle = "'margin-bottom: 35px;padding:30px;background-color: #D3D3D3;box-shadow: 10px 10px grey;'";
 var twoteByStyle = "'float:right;'";
@@ -20,7 +20,8 @@ $(document).ready(function() {
 
 var addTwote = function(userId, username) {
 	var twote = $("#twotearea").val();
-	$.post(baseAddUrl,
+
+	$.post(addRoute,
 		{
 			userId:userId,
 			twote:twote,
@@ -42,7 +43,7 @@ var logOut = function() {
 
 var findTwotesByUser = function(username, id) {
 	var params = username == "" ? "" : "?username=" + username;
-	var fullUrl = baseFindUrl + params;
+	var fullUrl = findRoute + params;
 
 	$.ajax({
 		url:fullUrl,
