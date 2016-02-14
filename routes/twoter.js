@@ -5,6 +5,7 @@ var Twote = require('../models/twote.js');
 
 var getTwotes = function(req, res) {
 	console.log(req);
+	
 	var dataBundle = {username:req.user.username,
 		userId:req.user._id};
 
