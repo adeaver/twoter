@@ -1,4 +1,5 @@
 var local = require('./local.js');
+var fb = require('./facebook.js');
 
 module.exports = function(passport) {
 	passport.serializeUser(function(user, done) {
@@ -10,4 +11,5 @@ module.exports = function(passport) {
 	});
 
 	local(passport);
+	fb(passport);
 }

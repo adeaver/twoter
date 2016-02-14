@@ -34,8 +34,15 @@ var adder = require('./routes/addTwote.js');
 var finder = require('./routes/findTwoteByUser.js');
 
 app.get('/', index.home);
+
 app.get('/twoter', auth.isAuthenticated, runner.getTwotes);
 app.post('/login', passport.authenticate('local', {
+	successRedirect:'/twoter',
+	failureRedirect:'/'
+}));
+
+app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 	successRedirect:'/twoter',
 	failureRedirect:'/'
 }));
