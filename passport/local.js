@@ -28,7 +28,7 @@ module.exports = function(passport) {
 				if(password == user.password) {
 					return done(null, user);
 				} else {
-					return done(null, false, req.flash({"message":"Invalid password"}));
+					return done(null, false, {"message":"Invalid password"});
 				}
 			}
 		});

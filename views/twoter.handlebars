@@ -23,11 +23,9 @@
 	</div>
 
 	<div id="right_container">
-		{{#if isVerified}}
-			<input type="submit" value="Log Out" onclick="logOut()" />
-		{{else}}
-			<input type="submit" value="Log Out" disabled />
-		{{/if}}
+		<form method="GET" action="/logout">
+			<input type="submit" value="Log Out" />
+		</form>
 
 		<h1 class="title">Twoters</h1>
 		<div>

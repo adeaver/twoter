@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var expressSession = require('express-session');
+var flash = require('flash');
 var initPassport = require('./passport/initPassport.js');
 var auth = require('./passport/auth.js');
 var app = express();
@@ -23,6 +24,7 @@ app.use(expressSession({secret: "notReallyASecret",
 	saveUninitialized:false}));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 initPassport(passport);
 
@@ -38,7 +40,8 @@ app.get('/', index.home);
 app.get('/twoter', auth.isAuthenticated, runner.getTwotes);
 app.post('/login', passport.authenticate('local', {
 	successRedirect:'/twoter',
-	failureRedirect:'/'
+	failureRedirect:'/',
+	failureFlash:true
 }));
 
 app.get('/auth/facebook', passport.authenticate('facebook'));
@@ -46,6 +49,11 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 	successRedirect:'/twoter',
 	failureRedirect:'/'
 }));
+
+app.get('/logout', function(req, res) {
+	req.logout();
+	res.redirect('/');
+});
 
 // data routes
 app.post('/twoter/addTwote', adder.addTwote);

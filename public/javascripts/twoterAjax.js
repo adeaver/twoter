@@ -37,10 +37,6 @@ var addTwote = function(userId, username) {
 		});
 }
 
-var logOut = function() {
-	window.location.href = "/";
-}
-
 var findTwotesByUser = function(username, id) {
 	var params = username == "" ? "" : "?username=" + username;
 	var fullUrl = findRoute + params;

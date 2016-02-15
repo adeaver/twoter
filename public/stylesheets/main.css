@@ -60,3 +60,29 @@
 	background-color: #D3D3D3;
 	box-shadow: 10px 10px grey;
 }
+
+#content_container {
+	width:100%;
+	display:flex;
+	flex-direction:row;
+}
+
+.login_contained {
+	flex-grow:1;
+}
+
+.login_input {
+	display:block;
+	margin:auto;
+}
+
+#login_form {
+	margin-bottom: 35px;
+	padding:30px;
+	background-color: #D3D3D3;
+	box-shadow: 10px 10px grey;
+}
+
+#facebook_auth {
+	text-align: center;
+}

@@ -1,18 +1,20 @@
-{{#if redirected}}
-	<script type="text/javascript">
-		$(document).ready(function() {
-			alert("Incorrect username/password");
-		});
-	</script>
-{{/if}}
+<h1 class="title">Twoter</h1>
 
-<h1>Twoter</h1>
+<div id="content_container">
+	<div class="login_contained">&nbsp;</div>
+	<div class="login_contained">
+		<h5 class="title">Log In or Sign Up</h5>
+		<form id="login_form" method="POST" action="/login">
+			<input type="text" name="username" id="username" placeholder="Username" required class="login_input"/><br />
+			<input type="password" name="password" id="password" placeholder="Password" required class="login_input" /><br />
+			<input type="submit" value="Submit" class="login_input" />
+		</form>
 
-<p>Log In or Sign Up</p>
-<form method="POST" action="/login">
-	<input type="text" name="username" id="username" placeholder="Username" required /><br />
-	<input type="password" name="password" id="password" placeholder="Password" required /><br />
-	<input type="submit" value="Submit" />
-</form>
-
-<a href="/auth/facebook">Log In With Facebook</a>
+		<br />
+		<hr />
+		<br />
+		
+		<a href="/auth/facebook" id="facebook_auth" class="login_input">Log In With Facebook</a>
+	</div>
+	<div class="login_contained">&nbsp;</div>
+</div>
