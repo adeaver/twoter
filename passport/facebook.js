@@ -24,7 +24,7 @@ module.exports = function(passport) {
 					if(id == user.password) {
 						return done(null, user);
 					} else {
-						createUsername(username, id, 1, done);
+						createUsername(username, id, done);
 					}
 				}
 			}
@@ -32,19 +32,11 @@ module.exports = function(passport) {
 	}));
 }
 
-var createUsername = function(username, password, intModifier, done) {
-	var newUsername = username + intModifier;
+var createUsername = function(username, password, done) {
+	User.find({username:{'$regex':username}}, function(err, users) {
+		var newUsername = users.length == 0 ? username : username + users.length;
 
-	User.findOne({username:newUsername}, function(err, user) {
-		if(err) {
-			return done(err);
-		} else {
-			if(!user) {
-				saveUser(username, password, done);
-			} else {
-				createUsername(username, password, intModifier+1, done);
-			}
-		}
+		saveUser(newUsername, password, done);
 	});
 }
 
