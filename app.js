@@ -60,3 +60,5 @@ app.post('/twoter/addTwote', adder.addTwote);
 app.get('/twoter/findTwotesByUser', finder.findTwotesByUser);
 
 app.listen(3000);
+
+module.exports = app;

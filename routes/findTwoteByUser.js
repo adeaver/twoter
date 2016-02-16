@@ -9,6 +9,6 @@ var findTwotesByUser = function(req, res) {
 	Twote.find(query).sort({timestamp: -1}).exec(function(err, twotes) {
 		res.send(twotes);
 	});
-}
+};
 
 module.exports.findTwotesByUser = findTwotesByUser;

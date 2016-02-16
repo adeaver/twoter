@@ -28,17 +28,17 @@ module.exports = function(passport) {
 					}
 				}
 			}
-		})
+		});
 	}));
-}
+};
 
 var createUsername = function(username, password, done) {
 	User.find({username:{'$regex':username}}, function(err, users) {
-		var newUsername = users.length == 0 ? username : username + users.length;
+		var newUsername = users.length === 0 ? username : username + users.length;
 
 		saveUser(newUsername, password, done);
 	});
-}
+};
 
 var saveUser = function(username, password, done) {
 	var newUser = new User({
@@ -53,4 +53,4 @@ var saveUser = function(username, password, done) {
 			return done(null, user);
 		}
 	});
-}
+};

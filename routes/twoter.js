@@ -14,9 +14,9 @@ var getTwotes = function(req, res) {
 		userQuery.exec(function(err, users) {
 			dataBundle.users = err ? [] : users;
 			res.render("twoter", dataBundle);
-		})
+		});
 	});
-}
+};
 
 
 module.exports.getTwotes = getTwotes;

@@ -35,10 +35,10 @@ var addTwote = function(userId, username) {
 			
 			$("#twotearea").val("");
 		});
-}
+};
 
 var findTwotesByUser = function(username, id) {
-	var params = username == "" ? "" : "?username=" + username;
+	var params = username === "" ? "" : "?username=" + username;
 	var fullUrl = findRoute + params;
 
 	$.ajax({
@@ -47,10 +47,10 @@ var findTwotesByUser = function(username, id) {
 			$("#twotes").html(createListElements(result));
 			highlightTwoter(id);
 
-			singleTwoter.user = username == "" ? "all" : username;
+			singleTwoter.user = username === "" ? "all" : username;
 		}
-	})
-}
+	});
+};
 
 var highlightTwoter = function(id) {
 	var twoterTags = $('.findByTwoter');
@@ -63,13 +63,13 @@ var highlightTwoter = function(id) {
 			$("#" + twoterTags[index].id).css(twoterNameStyleHighlighted);
 		}
 	}
-}
+};
 
 var createListElements = function(listResults) {
 	var listElements = "";
 	var stop = listResults.length;
 
-	if(stop == 0) {
+	if(stop === 0) {
 		listElements += "<div style=" + twoteBoxStyle + ">No Twotes found for this user</div>";
 	} else {
 		for(var index = 0; index < stop; index++) {
@@ -78,11 +78,11 @@ var createListElements = function(listResults) {
 	}
 
 	return listElements;
-}
+};
 
 var createTwoteElement = function(username, text) {
 	var element = "<div style=" + twoteBoxStyle + ">" + text + "<br />";
 	element += "<span style='float:right;'>-- by " + username + "</span></div>";
 
 	return element;
-}
+};

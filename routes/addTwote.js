@@ -4,7 +4,7 @@ var Twote = require('../models/twote.js');
 // -- ADD TWOTES TO DATABASE --
 var twoteToDatabase = function(req, res) {
 	var userId = req.body.userId;
-	var twote = req.body.twote;
+	var text = req.body.twote;
 	var username = req.body.username;
 
 	var timestamp = new Date();
@@ -12,7 +12,7 @@ var twoteToDatabase = function(req, res) {
 	var twote = new Twote({
 		user:userId,
 		username:username,
-		text:twote,
+		text:text,
 		timestamp:timestamp
 	});
 
@@ -20,7 +20,7 @@ var twoteToDatabase = function(req, res) {
 		var data = err ? {} : twote;
 
 		res.send(data);
-	})
-}
+	});
+};
 
 module.exports.addTwote = twoteToDatabase;
