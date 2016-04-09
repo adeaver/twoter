@@ -4,9 +4,9 @@ var User = require('../models/user.js');
 
 module.exports = function(passport) {
 	passport.use(new FacebookStrategy({
-		clientID:credentials.clientID,
-		clientSecret:credentials.clientSecret,
-		callbackURL:credentials.callbackUrl
+		clientID:credentials.facebook.clientID,
+		clientSecret:credentials.facebook.clientSecret,
+		callbackURL:credentials.facebook.callbackUrl
 	}, function(accessToken, refreshToken, profile, done) {
 		// TODO add user data here
 		var displayName = profile.displayName;
